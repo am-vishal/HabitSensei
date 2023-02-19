@@ -6,7 +6,8 @@ const indexRoutes = require("./routes/index");
 const app = express();
 
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + '/assets'));
+app.use(express.static(__dirname + "/assets"));
+app.use(express.static("/assets"));
 
 // Set up routes
 app.use("/", indexRoutes);
