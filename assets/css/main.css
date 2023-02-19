@@ -1,3 +1,5 @@
+/* #8000FF */
+
 body {
   background-color: #e9ecef;
 }
@@ -8,11 +10,10 @@ header {
 
 .jumbotron {
   padding: 2rem 2rem;
-  margin-bottom: 2rem;
   border-radius: 0.3rem;
 }
 
-@keyframes fade-in-up {
+/* @keyframes fade-in-up {
   0% {
     opacity: 0;
     transform: translateY(20px);
@@ -29,4 +30,4 @@ header {
   animation-timing-function: ease-in-out;
   animation-delay: 0s;
   animation-fill-mode: forwards;
-}
+} */
