@@ -28,10 +28,25 @@
     </div>
     <div class="container text-center">
       <div class="animated">
-        <h2>Coming Soon</h2>
+        <h2>Sensei, Create a new Habit!</h2>
         <div id="animated-box">
-          <div class="fade-in-up">
-            <p>I'm currently working on crafting <b>HabitSensei</b></p>
+          <div class="fade-in-up mt-4 d-flex justify-content-center">
+            <%- include('card') -%>
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+ Add</button>
+                </div>
+              </div>
+              <div class="card">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
