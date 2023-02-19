@@ -1,0 +1,29 @@
+{
+  "name": "habitsensei",
+  "version": "1.0.0",
+  "description": "HabitSensei: Helping you achieve your goals and become the hero of your own Ninja journey.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/am-vishal/HabitSensei.git"
+  },
+  "author": "Vishal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/am-vishal/HabitSensei/issues"
+  },
+  "homepage": "https://github.com/am-vishal/HabitSensei#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
