@@ -42,7 +42,6 @@ module.exports.delete = (req, res) => {
       console.log("error in deleting from database");
       return res.redirect("back");
     }
-    console.log("Successfully deleted Habit");
     return res.redirect("back");
   });
 };
