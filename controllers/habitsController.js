@@ -13,16 +13,12 @@ module.exports.fetchWeeklyData = (req, res) => {
   }
   // Reverse the date array to show the dates in the correct order
   dateArray.reverse();
-
   // Fetch all habits from the database and update the habit data
   HabitModel.find({}, (error, habits) => {
     if (error) {
       console.log("Error while fetching data from Atlas DB", error);
       return res.redirect("/");
     }
-
-    updateHabitData(habits);
-
     return res.render("weekly", {
       habits,
       days: dateArray,
@@ -76,43 +72,6 @@ const updateStreakAndCompleted = async (habit) => {
   } catch (error) {
     if (error) {
       console.log(error);
-    }
-  }
-};
-
-// Updates habit data if required
-const updateHabitData = (habits) => {
-  const currentDayOfMonth = new Date().getDate();
-
-  for (const habit of habits) {
-    const daysSinceCreation = currentDayOfMonth - habit.creation_date;
-
-    if (daysSinceCreation > 0 && daysSinceCreation < 8) {
-      for (let i = daysSinceCreation, j = 0; i < habit.days.length; i++, j++) {
-        habit.days[j] = habit.days[i];
-      }
-      // Calculate number of remaining days in the week
-      const remainingDays = habit.days.length - daysSinceCreation;
-
-      // Calculate number of habits that have been completed this week
-      let habitsCompleted = 0;
-      for (let i = daysSinceCreation; i < habit.days.length; i++) {
-        if (habit.days[i] === "Done") {
-          habitsCompleted++;
-        }
-      }
-
-      // Calculate percentage of habits completed this week
-      const habitsCompletedPercentage = Math.round((habitsCompleted / remainingDays) * 100);
-
-      // Render the dashboard template with the habit data and calculated values
-      res.render("dashboard", {
-        habit: habit,
-        daysSinceCreation: daysSinceCreation,
-        remainingDays: remainingDays,
-        habitsCompleted: habitsCompleted,
-        habitsCompletedPercentage: habitsCompletedPercentage,
-      });
     }
   }
 };
