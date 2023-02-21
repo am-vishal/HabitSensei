@@ -44,14 +44,13 @@ HabitSensei is a habit tracking web application that helps you achieve your goal
 ├── index.js<br/>
 ├── package.json<br/>
 
-
 ## Usage
+
 - Home page: `/`
   - Displays a list of habits and a form to add new habits.
-- Daily view: `/daily`
-  - Displays a list of habits with checkboxes to mark them as completed for the day.
 - Weekly view: `/weekly`
   - Displays a list of habits with checkboxes to mark them as completed for the week.
 
 ## License
+
 This project is licensed under the ISC License.
