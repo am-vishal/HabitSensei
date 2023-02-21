@@ -12,7 +12,6 @@ module.exports.home = (req, res) => {
 module.exports.create = (req, res) => {
   let today = new Date();
   let date = today.getDate();
-  console.log(req.body);
   try {
     Habit.create(
       {
@@ -27,7 +26,6 @@ module.exports.create = (req, res) => {
           console.log("Error while creating Habit", err);
           return res.redirect("back");
         }
-        console.log(habit);
         return res.redirect("back");
       }
     );
