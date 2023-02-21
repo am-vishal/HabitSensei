@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="HabitSensei: Helping you achieve your goals and become the hero of your own Ninja journey." />
+    <meta name="keywords" content="HabitSensei, Habit Tracker, Coding-Ninja-Habit-Tracker, Habit Sensei, Habit-Sensei" />
+    <meta name="author" content="Vishal Kumar(https://github.com/am-vishal)" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <title>HabitSensei</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-TOtr0q3V7Azi2yTYhF7nILXfvjKvOdTO1RZwMi5L5EZ5r5gaxFTH+kivWnZhV7owE2QNLtiZ7DrzjWc7wKr0Fw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/df845d2570.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="habit-list">
+            <div class="habit-list__header">
+              <h1 class="display-4">Habit Sensei</h1>
+            </div>
+            <table class="table table-striped table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>Habit</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                  <th>Sun</th>
+                </tr>
+              </thead>
+              <tbody>
+                <a href="/" class="btn btn-sm btn-outline-primary my-3">Home</a>
+                <% for(let habit of habits){ %>
+                <tr>
+                  <td class="habit-list__name"><%= habit.description %></td>
+                  <% for(let i = 0 ; i<habit.days.length;i++) {%>
+                  <% let color = "secondary" %>
+                  <% let buttonClassDone = "btn-sm btn-outline-secondary" %>
+                  <% let buttonClassNotDone = "btn-sm btn-outline-secondary" %>
+                  <% let buttonClassNone = "btn-sm btn-outline-secondary" %>
+                  <% if(habit.days[i]=='Done'){ 
+                        color = "success";
+                        buttonClassDone = "btn-sm btn-success"; 
+                    } else if(habit.days[i]=='Not Done'){ 
+                        color = "danger"; 
+                        buttonClassNotDone = "btn-sm btn-danger"; 
+                    } %>
+                  <td>
+                    <div class="btn-group dropend">
+                      <button class="btn <%=buttonClassDone%>" onclick="location.href='/habit/update/<%= habit.id %>/<%= i %>/Done';" <% if(habit.days[i]=='Done') { %> style="background-color: <%=color%>;" <% } %>>
+                        <i class="fas fa-check" aria-hidden="true"></i>
+                      </button>
+                      <button class="btn <%=buttonClassNotDone%>" onclick="location.href='/habit/update/<%= habit.id %>/<%= i %>/Not%20Done';" <% if(habit.days[i]=='Not Done') { %> style="background-color: <%=color%>;" <% } %>>
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                      </button>
+                      <button class="btn <%=buttonClassNone%>" onclick="location.href='/habit/update/<%= habit.id %>/<%= i %>/None';" <% if(habit.days[i]=='None') { %> style="background-color: <%=color%>;" <% } %>>
+                        <i class="fas fa-minus" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <% } %>
+                </tr>
+                <% }%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
